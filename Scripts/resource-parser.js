@@ -79,8 +79,9 @@ resource_parser_url = https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mas
 4️⃣ 填入上述链接, 并打开的资源解析器开关
 ------------------------------
 */
+const Base64 = new Base64Code();
 
-var content0 = $resource.content;
+var content0 = Base64.encode(Base64.decode($resource.content)) === $resource.content ? Base64.decode($resource.content) : $resource.content;
 var link0 = $resource.link;
 //debug
 //const $resource={}
@@ -95,7 +96,7 @@ const subtag = $resource.tag != undefined ? $resource.tag : "";
 var Pinfo = mark0 && para1.indexOf("info=") != -1 ? para1.split("info=")[1].split("&")[0] : 0;
 var ntf_flow = 0;
 //常用量
-const Base64 = new Base64Code();
+
 const escapeRegExp = str => str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'); //处理特殊符号以便正则匹配使用
 var link1 = link0.split("#")[0]
 const qxpng = "https://raw.githubusercontent.com/crossutility/Quantumult-X/master/quantumult-x.png" // server sub-info link
